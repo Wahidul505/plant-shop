@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb, deleteFromDb, getFromDb } from '../../Utilities/localStorage';
 import Cart from '../Cart/Cart';
 import PlantsContainer from '../PlantsContainer/PlantsContainer';
 const Shop = () => {
@@ -9,6 +10,18 @@ const Shop = () => {
         .then(res => res.json())
         .then(data => setPlants(data));
     },[])
+    useEffect(()=>{
+        const storedCart = getFromDb();
+        const savedCart = [];
+        for(const id in storedCart){
+            const storedItem = plants.find(plant => plant.id === id);
+            if(storedItem){
+                storedItem.quantity = storedCart[id];
+                savedCart.push(storedItem);
+            }
+        }
+        setCart(savedCart);
+    },[plants])
     const addToCart = plant =>{
         let newCart = [];
         const exist = cart.find(item => item.id === plant.id);
@@ -22,10 +35,12 @@ const Shop = () => {
             newCart = [...cart, plant]
         }
         setCart(newCart);
+        addToDb(plant.id);
     };
     const deleteItem = plant =>{
         const rest = cart.filter(item => item.id !== plant.id);
         setCart(rest);
+        deleteFromDb(plant.id);
     }
     return (
         <div>

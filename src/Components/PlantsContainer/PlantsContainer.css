@@ -1,0 +1,16 @@
+.plants-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+}
+@media screen and (min-width:592px) and (max-width: 992px) {
+    .plants-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media screen and (max-width: 591px) {
+    .plants-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

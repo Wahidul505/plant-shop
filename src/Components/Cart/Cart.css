@@ -1,7 +1,25 @@
+.cart-container{
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    background-color: rgb(189, 218, 189);
+    overflow-y: auto;
+}
+.cart{
+    padding: 100px;
+}
+@media screen and (max-width:600px) {
+    .cart{
+        padding: 50px 50px 30px 30px;
+    }
+}
 .cart-btn{
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 3%;
+    right: 2%;
     background-color: seagreen;
     color: white;
     border: none;
@@ -13,19 +31,10 @@
 .cart-btn sup{
     margin-left: 5px;
 }
-.cart-container{
-    padding: 20px;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    background-color: rgb(189, 218, 189);
-}
 .close-btn{
     position: absolute;
-    top: 20px;
-    right: 60px;
+    top: 3%;
+    right: 40px;
     background-color: seagreen;
     color: white;
     border: none;

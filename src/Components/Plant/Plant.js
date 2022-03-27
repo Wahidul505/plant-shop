@@ -1,7 +1,7 @@
 import React from 'react';
 import './Plant.css';
 import { BsMinecartLoaded } from 'react-icons/bs';
-const Plant = ({plant}) => {
+const Plant = ({plant, addToCart}) => {
     const {picture, name, price} = plant;
     return (
         <div className='plant-card'>
@@ -11,7 +11,7 @@ const Plant = ({plant}) => {
                 <p>TK {price}</p>
             </div>
             <div>
-                <button><BsMinecartLoaded /></button>
+                <button onClick={()=>addToCart(plant)}><BsMinecartLoaded /></button>
             </div>
         </div>
     );

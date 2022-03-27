@@ -1,17 +1,18 @@
 import React from 'react';
 import './CartPlant.css';
 import { BsTrash } from 'react-icons/bs';
-const CartPlant = () => {
+const CartPlant = ({cartItem, deleteItem}) => {
+    const {picture, name, price, quantity} = cartItem;
+    const itemPrice = price * quantity;
     return (
-        <div className='cart'>
+        <div>
             <div className='cart-item'>
                 <div>
-                    <img src="https://www.plantandflowerinfo.com/images/pothos-marble-queen-plant.jpg" alt="" />
-                    <span>0</span>
+                    <img src={picture} alt="" />
+                    <span>{quantity}</span>
                 </div>
-                <p>something something</p>
-                <button className='trash-btn'><BsTrash /></button>
-
+                <p>{name}(TK {itemPrice})</p>
+                <button onClick={()=> deleteItem(cartItem)} className='trash-btn'><BsTrash /></button>
             </div>
         </div>
     );
